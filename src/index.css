@@ -5,7 +5,7 @@
   --color-primary :#4F46E5;
   --secon-color:#6366F1;
   --text-color:#010208;
-  --bg-color: #fefeff;
+  --bg-color: #e3e3fa;
 
   --transition: all 300ms ease;
 
@@ -125,6 +125,10 @@ color: var(--color-primary);
 font-size: 0.7rem;
 font-weight: 400;
 }
+
+
+
+/*nav*/
 .nav_logo{
   width: 6rem;
   display: block;
@@ -133,4 +137,36 @@ img{
   display: block;
   object-fit: cover;
   width: 100%;
+}
+
+nav{
+  width: 100vw;
+  height: 5rem;
+  display: grid;
+  place-items: center;
+  background-color:var(225,225,225,0.5) ;
+  position: fixed;
+  top: 0;
+  left: 0
+  ;
+  z-index: 1;
+  border-bottom: 4px solid var(--bg-color) ;
+  backdrop-filter: blur(20px);
+
+}
+
+.nav_container{
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 100%;
+
+}
+.nav_menu{
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.nav_toggle-btn{
+  display: none;
 }
