@@ -126,8 +126,16 @@ font-size: 0.7rem;
 font-weight: 400;
 }
 
-
-
+.center{
+  text-align: center;
+  padding-top: 5rem;
+  margin-inline: center;
+  display: block;
+  width: 100%;
+}
+.error_page h2{
+margin-top: 3rem;
+}
 /*nav*/
 .nav_logo{
   width: 6rem;
