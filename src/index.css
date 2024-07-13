@@ -170,3 +170,43 @@ height: 100%;
 .nav_toggle-btn{
   display: none;
 }
+
+
+/*footer*/
+
+
+footer{
+  background: rgb(22, 19, 28);
+  margin-top: 6rem;
+  padding-top: 6rem;
+}
+
+.footer_categories{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+
+}
+.footer_categories a{
+  background: rgb(86, 85, 85);
+  color: white;
+  padding: 0.6rem 1.4rem;
+  transition: var(--transition);
+  border-radius: 0.6rem;
+
+}
+
+.footer_categories a:hover{
+  background: white;
+  color: rgb(86, 85, 85);
+}
+
+.copyright{
+  text-align: center;
+  border-top: 2px solid rgb(86, 85, 85);
+  padding: 1rem;
+  color: white;
+  font-weight: 300;
+}
