@@ -4,8 +4,22 @@ import './index.css';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './components/Layout';
-import ErrorPage from './pages/ErrorPage'
+import ErrorPage from './pages/ErrorPage';
+import Author from './pages/Author';
+import Home from './pages/Home'
+import Login from './pages/Login'
+import EditPost from './pages/EditPost'
+import Delete from './pages/Delete'
+import Dashboard from './pages/Dashboard'
+import CreatePost from './pages/CreatePost'
+import CategotyPost from './pages/CategotyPost'
+import Logout from './page/Logout'
+import Register from './pages/Register'
+import PostDetail from './pages/PostDetail'
+import UserProfile from './pages/UserProfile'
 
+
+i
 
 
 const router = createBrowserRouter([
@@ -13,7 +27,20 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout/>,
-    errorElement : <ErrorPage/>
+    errorElement : <ErrorPage/>,
+    children:[
+      {index: true, element: <Home/>},
+      {path: "Posts/id", element:<PostDetail/>},
+      {path: "register", element:<Register/>},
+      {path: "login", element:<Login/>},
+      {path: "profile/:id", element:<UserProfile/>},
+      {path: "author", element:<Author/>},
+      {path: "create", element:<CreatePost/>},
+      {path: "Posts/id/edit", element:<EditPost/>},
+      {path: "logout", element:<Logout/>},
+
+
+    ]
   }
 ])
 
