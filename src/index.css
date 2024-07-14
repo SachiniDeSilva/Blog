@@ -219,4 +219,33 @@ footer{
   font-weight: 300;
 }
 /*home*/
+.posts_container{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 4rem;
+  width: 150px;
 
+}
+
+
+.post{
+  background: white;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  padding-bottom: 2rem;
+  transition: var(--transition);
+  cursor: default;
+}
+.post:hover{
+  box-shadow: 0 1.5rem 2rem rgba(0,0 ,0 ,0.1);
+}
+
+.post_thumbnail{
+  border-radius: 0.3rem;
+  overflow: hidden;
+  width: 250px;
+  height: auto;
+}
+.post_content{
+  margin-top: 1.5rem;
+}

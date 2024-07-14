@@ -11,6 +11,43 @@ const Dummy_post = [
     desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
     authorID: 3,
   },
+
+  {
+    id: '1',
+    thumbnail: thumbnail1,
+    category: 'education',
+    title: 'This is the title',
+    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
+    authorID: 3,
+  },
+  {
+    id: '1',
+    thumbnail: thumbnail1,
+    category: 'education',
+    title: 'This is the title',
+    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
+    authorID: 3,
+  },
+  {
+    id: '1',
+    thumbnail: thumbnail1,
+    category: 'education',
+    title: 'This is the title',
+    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
+    authorID: 3,
+  },
+
+
+  {
+    id: '1',
+    thumbnail: thumbnail1,
+    category: 'education',
+    title: 'This is the title',
+    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
+    authorID: 3,
+  },
+
+
 ];
 
 const Post = () => {
@@ -18,6 +55,7 @@ const Post = () => {
   
   return (
     <section className='posts'>
+      <div className='container posts_container'>
       {posts.map((post) => (
         <PostItem
           key={post.id}
@@ -29,6 +67,7 @@ const Post = () => {
           authorID={post.authorID}
         />
       ))}
+      </div>
     </section>
   );
 };
