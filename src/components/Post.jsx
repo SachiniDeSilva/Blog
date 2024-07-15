@@ -32,7 +32,7 @@ const Dummy_post = [
     id: '1',
     thumbnail: thumbnail1,
     category: 'education',
-    title: 'This is the title',
+    title: 'This is the title and fnfnjfjecnjdknd djended kddkejf dkwmdkd',
     desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
     authorID: 3,
   },
