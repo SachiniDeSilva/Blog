@@ -82,6 +82,8 @@ section {
 .container{
   width: var(--container-width-lg);
   margin-inline: auto;
+  align-items: flex-start;
+  
 
 }
 
@@ -221,9 +223,11 @@ footer{
 /*home*/
 .posts_container{
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 4rem;
   width: 150px;
+ 
+  align-items: flex-start;
 
 }
 
@@ -235,6 +239,7 @@ footer{
   padding-bottom: 2rem;
   transition: var(--transition);
   cursor: default;
+ 
 }
 .post:hover{
   box-shadow: 0 1.5rem 2rem rgba(0,0 ,0 ,0.1);
@@ -248,4 +253,9 @@ footer{
 }
 .post_content{
   margin-top: 1.5rem;
+}
+
+
+.posts_container{
+  padding-left: 50px;
 }
