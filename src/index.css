@@ -221,12 +221,12 @@ footer{
   font-weight: 300;
 }
 /*home*/
-.posts_container{
+.posts_container, .author_container, .category_container{
   display: grid;
   grid-template-columns: repeat(4,1fr);
   gap: 4rem;
   width: 150px;
- 
+  padding-left: 50px;
   align-items: flex-start;
 
 }
@@ -261,7 +261,7 @@ footer{
 
 }
 .posts_container{
-  padding-left: 50px;
+
 }
 
 .post_footer{

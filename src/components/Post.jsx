@@ -1,99 +1,20 @@
 import React, { useState } from 'react';
-import thumbnail1 from '../images/Serene Sunrise with Deer.jpg';
+
 import PostItem from './PostItem';
-
-const Dummy_post = [
-  {
-    id: '1',
-    thumbnail: thumbnail1,
-    category: 'education',
-    title: 'This is the title',
-    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
-    authorID: 3,
-  },
-
-  {
-    id: '1',
-    thumbnail: thumbnail1,
-    category: 'education',
-    title: 'This is the title',
-    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
-    authorID: 3,
-  },
-  {
-    id: '1',
-    thumbnail: thumbnail1,
-    category: 'education',
-    title: 'This is the title',
-    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
-    authorID: 3,
-  },
-  {
-    id: '1',
-    thumbnail: thumbnail1,
-    category: 'education',
-    title: 'This is the title and fnfnjfjecnjdknd djended kddkejf dkwmdkd',
-    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
-    authorID: 3,
-  },
+import {Dummy_post} from '../data'
 
 
-  {
-    id: '1',
-    thumbnail: thumbnail1,
-    category: 'education',
-    title: 'This is the title',
-    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
-    authorID: 3,
-  },
-
-  {
-    id: '1',
-    thumbnail: thumbnail1,
-    category: 'education',
-    title: 'This is the title',
-    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
-    authorID: 3,
-  },
-  
-  {
-    id: '1',
-    thumbnail: thumbnail1,
-    category: 'education',
-    title: 'This is the title',
-    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
-    authorID: 3,
-  },
-  
-  {
-    id: '1',
-    thumbnail: thumbnail1,
-    category: 'education',
-    title: 'This is the title',
-    desc: 'djednjcnjdcnjfcnjfnjjcjcjncjcej',
-    authorID: 3,
-  },
-
-];
 
 const Post = () => {
   const [posts, setPosts] = useState(Dummy_post);
   
   return (
     <section className='posts'>
-      <div className='posts_container'>
-      {posts.map((post) => (
-        <PostItem
-          key={post.id}
-          postID={post.id}
-          thumbnail={post.thumbnail}
-          category={post.category}
-          title={post.title}
-          desc={post.desc}
-          authorID={post.authorID}
-        />
-      ))}
-      </div>
+       {posts.length > 0 ? <div className='posts_container'>
+    {
+      posts.map(({id,thumbnail,category,title,desc,authorID}) => <PostItem key={id} postID={id} thumbnail={thumbnail} category={category} title={title} desc={desc} authorID={authorID}></PostItem>)
+    }
+    </div> : <h2 className='center'>No Post Found</h2>}
     </section>
   );
 };

@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+import PostItem from '../components/PostItem'
+import { Dummy_post } from '../data'
+
+
 
 const AuthorPost = () => {
+
+
+  const [posts, setPosts]= useState (Dummy_post)
   return (
-    <div>AuthorPost</div>
-  )
+    <section className='author_posts'>
+     {posts.length > 0 ? <div className='author_container'>
+    {
+      posts.map(({id,thumbnail,category,title,desc,authorID}) => <PostItem key={id} postID={id} thumbnail={thumbnail} category={category} title={title} desc={desc} authorID={authorID}></PostItem>)
+    }
+    </div> : <h2 className='center'>No Post Found</h2>}
+  </section>  )
 }
 
 export default AuthorPost
