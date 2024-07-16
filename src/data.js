@@ -11,7 +11,7 @@ export const Dummy_post = [
     },
   
     {
-      id: '1',
+      id: '2',
       thumbnail: thumbnail1,
       category: 'art',
       title: 'This is the title',
@@ -19,7 +19,7 @@ export const Dummy_post = [
       authorID: 3,
     },
     {
-      id: '1',
+      id: '3',
       thumbnail: thumbnail1,
       category: 'education',
       title: 'This is the title',
@@ -27,7 +27,7 @@ export const Dummy_post = [
       authorID: 3,
     },
     {
-      id: '1',
+      id: '4',
       thumbnail: thumbnail1,
       category: 'education',
       title: 'This is the title and fnfnjfjecnjdknd djended kddkejf dkwmdkd',

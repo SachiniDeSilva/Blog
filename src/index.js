@@ -39,11 +39,11 @@ const router = createBrowserRouter([
       {path: "create", element:<CreatePost/>},
       {path: "Posts/categories/:category", element:<CategotyPost/>},
       {path: "Posts/users/:id", element:<AuthorPost/>},
-     
+      {path: "myposts/:id", element:<Dashboard/>},
       {path: "Posts/:id/edit", element:<EditPost/>},
       {path: "Posts/:id/delete", element:<Delete/>},
       {path: "logout", element:<Logout/>},
-      {path: "myposts/:id", element:<Dashboard/>},
+   
 
 
 

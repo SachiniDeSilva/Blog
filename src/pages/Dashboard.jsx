@@ -23,9 +23,9 @@ const Dashboard = () => {
 
           </div>
           <div className="dashboard_post-actions">
-            <Link to={`/post/${post.id}`} className='btn sm'>View</Link>
-            <Link to={`/post/${post.id}/edit`} className='btn sm primary'>Edit</Link>
-            <Link to={`/post/${post.id}/delete`} className='btn sm danger'>Delete</Link>
+            <Link to={`/posts/${post.id}`} className='btn sm'>View</Link>
+            <Link to={`/posts/${post.id}/edit`} className='btn sm primary'>Edit</Link>
+            <Link to={`/posts/${post.id}/delete`} className='btn sm danger'>Delete</Link>
           </div>
         </article>
       })
