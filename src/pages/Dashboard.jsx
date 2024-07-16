@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
    <section className='dashboard'>
 {
-  posts.length ? <div className="dashboard_container">
+  posts.length ? <div className=" dashboard_container">
 
     {
       posts.map(post => {

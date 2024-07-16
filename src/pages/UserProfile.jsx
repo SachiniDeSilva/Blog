@@ -17,7 +17,7 @@ const UserProfile = () => {
 
   return (
    <section className='profile'>
-    <div className="profile_container">
+    <div className=" container profile_container">
       <Link to={`/myposts/sdsffv`} className='btn'>My Posts</Link>
 
       <div className="profile_details">
@@ -39,7 +39,7 @@ const UserProfile = () => {
 
 
 
-        <form className='form profile_form'>
+        <form className='form profile_form container'>
           <p className='form_error-message'> This is the error message</p>
           <input type='text' placeholder='Full Name' value={name} onChange={e => setName(e.target.value)}/>
           <input type='email' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}/>

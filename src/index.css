@@ -316,7 +316,7 @@ input,select,textarea{
   margin-bottom: 1rem;
 }
 
-.register, .login, .create-post,.profile_form{
+.register, .login, .create-post{
   width: 50%;
   margin-inline: auto;
   height: calc(100vh - 12rem);
@@ -469,4 +469,17 @@ padding-left: 10px;
 .dashboard_post-actions{
   display: flex;
   gap: 1rem;
+}
+
+
+/*quill */ 
+.ql-editor{
+  overflow: scroll;
+  background: white;
+  height: 10rem !important;
+}
+
+.create_container, .profile_form{
+
+  width: 50%;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css'
 
 const CreatePost = () => {
 
@@ -12,7 +13,7 @@ const [thumbnail, setThumbnail] = useState('')
 
 const modules ={
   toolbar:[
-    [{'header':[1,2,false]}],
+    [{'header':[1,2,3,4,5,6 ,false]}],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
     [{'list': 'ordered'}, {'list': 'bulet'}, {'indent': '-1'}, {'indent': '+1'}]
   ]
@@ -40,7 +41,7 @@ const POst_categories =[
 
   return (
    <section className='create_post'>
-    <div className="container">
+    <div className="container create_container">
       <h2>Create Post</h2>
       <p className="form_error-message">
         This is an error message
@@ -54,9 +55,12 @@ const POst_categories =[
           {
 POst_categories.map(cat => <option key={cat}>{cat}</option>)
           }
+          
+        </select>
+
+        <ReactQuill modules={modules} formats={formats} value={description} onChange={setDescription}/>
           <input type='file' onChange={e => setThumbnail(e.target.files[0])} accept='png,jpg,jpeg'></input>
           <button type='submit' className='btn primary'> Create </button>
-        </select>
       </form>
     </div>
 
