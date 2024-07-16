@@ -29,7 +29,7 @@ const Login = () => {
 
        
 
-     <button type="submit" className="btn primary">Register</button>
+     <button type="submit" className="btn primary">Sign In</button>
 
 
       </form>
