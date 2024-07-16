@@ -7,7 +7,14 @@ import Avatar from '../images/Follow-These-Steps-for-a-Flawless-Professional-Pro
 const UserProfile = () => {
 
 
-  const[avatar, setAvatar] = useState ('')
+  const[avatar, setAvatar] = useState (Avatar)
+
+  const [name, setName] =useState ('')
+  const [email, setEmail] =useState ('')
+  const [currentPassword, setCurrentPassword] =useState ('')
+  const [newPassword, setNewPassword] =useState ('')
+  const [confirmNewPassword, setConfirmNewPassword] =useState ('')
+
   return (
    <section className='profile'>
     <div className="profile_container">
@@ -16,7 +23,7 @@ const UserProfile = () => {
       <div className="profile_details">
         <div className="avatar_wrapper">
           <div className="profile_avatar">
-            <img src={Avatar} alt="" />
+            <img src={avatar} alt="" />
           </div>
 
           <form className="avatar_form">
@@ -27,6 +34,21 @@ const UserProfile = () => {
         </div>
 
         <h1>Ernest Achiever</h1>
+
+
+
+
+
+        <form className='form profile_form'>
+          <p className='form_error-message'> This is the error message</p>
+          <input type='text' placeholder='Full Name' value={name} onChange={e => setName(e.target.value)}/>
+          <input type='email' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}/>
+          <input type='password' placeholder='Current Password' value={currentPassword} onChange={e => setCurrentPassword(e.target.value)}/>
+          <input type='password' placeholder='New Password' value={newPassword} onChange={e => setNewPassword(e.target.value)}/>
+          <input type='password' placeholder='Confirm new Password' value={confirmNewPassword} onChange={e => setConfirmNewPassword(e.target.value)}/>
+
+          <button type='submit' className='btn primary'>Update details</button>
+        </form>
       </div>
     </div>
    </section>
