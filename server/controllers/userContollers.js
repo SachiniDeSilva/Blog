@@ -1,3 +1,6 @@
+
+const bcrypt = require('bcryptjs')
+
 const User = require('../models/userModels')
 
 
@@ -25,6 +28,10 @@ if((password.trim()).length < 6){
 if(password != password2){
     return next(new HttpError("Password do not match",422))
 }
+const salt = await bcrypt.genSalt(10)
+const hashedPass = await bcrypt.hash(password,salt)
+const newUser = await User.create({name, email: newEmail, password:hashedPass})
+res.status(201).json(`new user ${newUser.email}registered.`)
 
     }catch(error){
         return next (new HttpError("User registration faild", 422))
