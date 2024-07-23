@@ -95,7 +95,7 @@ const getUser = async(req,res,next) => {
 //change user avater
 
 const changeAvatar = async(req,res,next) => {
-    res.json("Change use Avatar")
+  
 }
 
 
@@ -108,7 +108,12 @@ const editUser = async(req,res,next) => {
 //get user profile 
 
 const getAuthors = async(req,res,next) => {
-    res.json("Get All User")
+    try {
+        const authors =await User.find().select('-password');
+        res.json(authors)
+       } catch (error) {
+        return next(new HttpError(error))
+       }
 }
 
 
