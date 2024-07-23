@@ -76,7 +76,19 @@ const loginUser = async(req,res,next) => {
 //user profile
 
 const getUser = async(req,res,next) => {
-    res.json("Get User")
+    try {
+        const {id} = req.params
+        const user = await User.findById(id).select('-password')
+
+
+        if(!user){
+            return next(new HttpError("User not found", 404))
+        }
+        res.status(200).json(user)
+    } catch (error) {
+        return next (new HttpError(error))
+        
+    }
 }
 
 
