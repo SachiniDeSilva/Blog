@@ -41,37 +41,35 @@ res.status(201).json(`new user ${newUser.email}registered.`)
 
 
 //login
-const loginUser = async(req,res,next) => {
-   try {
-    const{email,password} =req.body;
-    if(!email || !password){
-        return next(new HttpError("Fill in all fields",422))
+const loginUser = async (req, res, next) => {
+    try {
+        const { email, password } = req.body;
+        
+        if (!email || !password) {
+            return next(new HttpError('Fill in all fields', 422));
+        }
+        
+        const newEmail = email.toLowerCase();
+        const user = await User.findOne({ email: newEmail });
+        
+        if (!user) {
+            return next(new HttpError('Invalid credentials', 422));
+        }
+        
+        const comparePass = await bcrypt.compare(password, user.password);
+        
+        if (!comparePass) {
+            return next(new HttpError('Invalid credentials', 422));
+        }
+        
+        const { id, name } = user;
+        const token = jwt.sign({ id, name }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        
+        res.status(200).json({ token, id, name });
+    } catch (error) {
+        return next(new HttpError('Login failed. Please check your credentials', 422));
     }
-    const newEmail = email.toLowerCase();
-    const user = await User.findOne({email,newEmail})
-    if(!user){
-        return next(new HttpError("Invalid credentials.",422))
-    }
-
-    const comparePass  =await bcrypt.compare(password,user.password)
-
-
-    if(!comparePass){
-        return next(new HttpError("Invalid Cridentials",422) )
-    }
-
-
-    const{id:id, name} = user;
-    const token =jwt.sign({id, name}, process.env.JWT_SECRET, {expiresIn:"id"})
-    res.status(200).json({token,id,name})
-
-   } catch (error) {
-    return next (new HttpError("Login faild. please check your credentials", 422))
-    
-   }
-}
-
-
+};
 
 //user profile
 
@@ -95,7 +93,13 @@ const getUser = async(req,res,next) => {
 //change user avater
 
 const changeAvatar = async(req,res,next) => {
-  
+  try {
+    res.json(req.files)
+    console.log(req.files)
+    
+  } catch (error) {
+    return next(new HttpError(error))
+  }
 }
 
 
