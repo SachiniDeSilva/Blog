@@ -7,7 +7,7 @@ const autoMiddleware = async (req,res,next) => {
         const token = Authorization.split(' ')[1]
         jwt.verify(token, process.env.JWT_SECRET,(err, info)=>{
             if(err){
-                return next(new HttpError("Unauthorized invalid token", 403))
+                return next(new HttpError("Unauthorzed invalid token", 403))
             }
 
             req.user = info;
