@@ -1,4 +1,9 @@
 const Post = require('../models/postModle')
+const User = require('../models/userModels')
+const path = require('path')
+const fs = require('fs')
+const {v4:uuid} = require('uuid')
+const HttpError = require('../models/errorModel')
 //Get all posts
 const createPost = async(req, res, next) => {
     res.json("Create post")
