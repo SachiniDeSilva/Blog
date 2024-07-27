@@ -1,4 +1,4 @@
-
+const Post = require('../models/postModle')
 //Get all posts
 const createPost = async(req, res, next) => {
     res.json("Create post")
