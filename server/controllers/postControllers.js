@@ -51,7 +51,7 @@ const createPost = async(req, res, next) => {
 //get a new post
 const getPosts = async(req, res, next) => {
    try {
-    const posts = await Post.findOne.sort({updateAt: -1})
+    const posts = await Post.findOne.sort({updatedAt: -1})
     res.status(200).json(posts)
    } catch (error) {
     
@@ -70,7 +70,7 @@ const getPost = async(req, res, next) => {
      }
      res.status(200).json(post)
    } catch (error) {
-    
+    return next(new HttpError(error))
    }
 }
 
@@ -78,7 +78,13 @@ const getPost = async(req, res, next) => {
 
 //Get post particular catogories
 const getCatPost = async(req, res, next) => {
-    res.json("Get Catogory post")
+   try {
+    const{category} = req.params
+    const catPosts = await Post.find({category}).sort({createdAt:-1})
+    req.status(200).json(catPosts)
+   } catch (error) {
+    return next(new HttpError(error))
+   }
 }
 
 //get another post
