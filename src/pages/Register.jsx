@@ -31,7 +31,7 @@ const Register = () => {
         if (!nwUser) {
           setError("Couldn't register User. Please try again")
         } else {
-          navigate('/')
+          navigate('/login')
         }
       } else {
         setError("Invalid response from server. Please try again")
