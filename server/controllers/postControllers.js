@@ -50,14 +50,28 @@ const createPost = async(req, res, next) => {
 
 //get a new post
 const getPosts = async(req, res, next) => {
-    res.json("Get all posts post")
+   try {
+    const posts = await Post.findOne.sort({updateAt: -1})
+    res.status(200).json(posts)
+   } catch (error) {
+    
+   }
 }
 
 
 //Get single post
 
 const getPost = async(req, res, next) => {
-    res.json("Get single post")
+   try {
+     const postid = req.params.id
+     const post = await Post.findById(postId)
+     if(!post){
+        return next (new HttpError("Post Not Found", 404))
+     }
+     res.status(200).json(post)
+   } catch (error) {
+    
+   }
 }
 
 
