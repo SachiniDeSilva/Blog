@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 5000;
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    const server = app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+    const server = app.listen(app.listen(process.env.PORT ||5000, () => console.log(`Server started on port ${PORT}`)));
 
     server.on('error', (err) => {
       if (err.code === 'EADDRINUSE') {
