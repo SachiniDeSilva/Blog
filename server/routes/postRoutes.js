@@ -1,8 +1,8 @@
-const{Router} =require('express')
+const{Router} = require('express')
 const router =Router()
 
 
-const {createPost, getPosts,getPost, getCatPost, getUserpost, editPost, deletePost} = require('../controllers/postControllers ')
+const {createPost, getPosts,getPost, getCatPost, getUserpost, editPost, deletePost} = require('../controllers/postControllers')
 
 
 const authMiddleware =require('../middleware/authMiddleware')

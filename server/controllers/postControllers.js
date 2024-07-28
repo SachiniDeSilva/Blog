@@ -38,7 +38,7 @@ const createPost = async(req, res, next) => {
 
 
 
-              resststus(201).json(newPost)
+              resststus(201).json
             }
         })
     } catch (error) {
