@@ -89,7 +89,11 @@ const getCatPost = async(req, res, next) => {
 
 //get another post
 const getUserpost = async(req, res, next) => {
-    res.json("Get user post")
+  try {
+    
+  } catch (error) {
+    return next(new HttpError(error))
+  }
 }
 
 
