@@ -18,6 +18,7 @@ import Register from './pages/Register'
 import PostDetail from './pages/PostDetail'
 import UserProfile from './pages/UserProfile'
 import AuthorPost from './pages/AuthorPost'
+import UserProvider from './context/userContext.js';
 
 
 
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
 
   {
     path: "/",
-    element: <Layout/>,
+    element: <UserProvider><Layout/></UserProvider>,
     errorElement : <ErrorPage/>,
     children:[
       {index: true, element: <Home/>},
