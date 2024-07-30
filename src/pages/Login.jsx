@@ -1,5 +1,5 @@
 import React, { useState , useContext } from 'react'
-import { Link,useNavigate,useNavigate } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -29,7 +29,7 @@ const {setCurrentUser} = useContext(UserContext)
 
 
 
-  const loginUser = async() =>{
+  const loginUser = async(e) =>{
     e.preventDefault()
     setError('')
     try {
@@ -38,7 +38,7 @@ const {setCurrentUser} = useContext(UserContext)
       setCurrentUser(user)
       navigate('/')
     } catch (error) {
-      setError(err.response.data.message)
+      setError(error.response.data.message)
     }
   }
   return (
