@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import avatar from '../images/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg';
 import { Dummy_post } from '../data';
 
-const PostAuthor = () => {
+const PostAuthor = ({createdAt}) => {
   return (
     <Link to={'/Posts/users/sdsffv'} className='post-author'>
       <div className="post_author-avatar">
