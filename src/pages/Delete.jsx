@@ -22,7 +22,7 @@ const Delete = () => {
 
 
   return (
-    <div>Delete</div>
+    <Link className='btn sm danger'>Delete</Link>
   )
 }
 

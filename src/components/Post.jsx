@@ -31,7 +31,7 @@ const Post = () => {
     <section className='posts'>
       {posts.length > 0 ? (
         <div className='posts_container'>
-          {posts.map(({ id, thumbnail, category, title, desc, authorID, createdAt }) => (
+          {posts.map(({ _id:id, thumbnail, category, title, desc, creator, createdAt }) => (
             <PostItem
               key={id}
               postID={id}
@@ -39,7 +39,7 @@ const Post = () => {
               category={category}
               title={title}
               desc={desc}
-              authorID={authorID}
+              authorID={creator}
               createdAt={createdAt}
             />
           ))}
