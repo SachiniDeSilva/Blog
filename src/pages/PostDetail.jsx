@@ -1,28 +1,36 @@
-import React from 'react'
+import React ,{useState, useContext, useEffect}from 'react'
 import PostAuthor from '../components/PostAuthor'
 import { Link } from 'react-router-dom'
 import thumbnail from '../images/Serene Sunrise with Deer.jpg'
-
+import Loader from '../components/Loader'
+import Delete from './Delete'
+import { UserContext } from '../context/userContext'
 const PostDetail = () => {
+  const {id} = useParams()
+const  [post, setPost] = useState(null)
+const  [creatorID, setCreatorID] = useState(null)
+const  [error, setError] = useState(null)
+const  [isLoading, setIsLoading ] = useState(false)
+
+const {currentUser} = useContext(UserContext)
   return (
   <section className='post-detail'>
-    <div className="container post-detail_container">
+    {error && <p className='error'>{error}</p>}
+   {post && <div className="container post-detail_container">
       <div className="post-detail_header">
-        <PostAuthor/>
-        <div className="post-detail_buttons">
+        {/*<PostAuthor/>*/}
+       {currentUser?.id == post?.creator &&  <div className="post-detail_buttons">
           <Link to={'/posts/Werwer/edit'} className='btn sm primary'>Edit</Link>
-          <Link to={'/posts/Werwer/delete'} className='btn sm danger'>Delete</Link>
-        </div>
+          <Delete/>
+        </div>}
       </div>
       <h1> Post Title</h1>
       <div className="post_detail_thumbnail">
-        <img src={thumbnail} alt="" />
+        <img src="{}"alt="" />
       </div>
 
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo nemo earum dolores explicabo, dolore, quas officia nesciunt architecto hic, inventore nihil! Laborum, amet! Libero eum rerum ullam possimus distinctio culpa?</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis blanditiis odio repellat nihil molestias atque molestiae porro explicabo quam aut.</p>
-
-    </div>
+     
+    </div>}
   </section>
   )
 }

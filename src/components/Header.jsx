@@ -39,7 +39,7 @@ const closeNavHandler = () => {
 
 
         
-        {currentUser?.id && isNavShowing &&<ul className="nav_menu">
+        {!currentUser?.id && isNavShowing &&<ul className="nav_menu">
      
           <li><Link to='/author' onClick={closeNavHandler}> Authors</Link> </li>
           <li><Link to='/login' onClick={closeNavHandler}> Login</Link> </li>
