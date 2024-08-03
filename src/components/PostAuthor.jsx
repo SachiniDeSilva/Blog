@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ReactTimeAgo from 'react-time-ago';
+import TimeAgo from 'javascript-time-ago';
+
+import en from 'javascript-time-ago/locale/en.json';
+import ru from 'javascript-time-ago/locale/ru.json';
+
+// Initialize the locales
+TimeAgo.addDefaultLocale(en);
+TimeAgo.addLocale(ru);
 
 const PostAuthor = ({ authorID, createdAt }) => {
   const [author, setAuthor] = useState({});
@@ -25,7 +34,9 @@ const PostAuthor = ({ authorID, createdAt }) => {
       </div>
       <div className="post_author-details">
         <h5>By {author?.name || 'Unknown'}</h5>
-        <small>{new Date(createdAt).toLocaleString()}</small>
+        <small>
+          <ReactTimeAgo date={new Date(createdAt)} locale="en" />
+        </small>
       </div>
     </Link>
   );
