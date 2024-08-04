@@ -1,28 +1,34 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useState ,useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../components/Loader';
 
-import Avatar1 from '../images/Follow-These-Steps-for-a-Flawless-Professional-Profile-Picture.jpg';
-
-const authorData = [
-  {
-    id: 1, avatar: Avatar1, name: 'Ernest Achiever', posts: 3
-  },
-  {
-    id: 2, avatar: Avatar1, name: 'Jane Doe', posts: 4
-  },
-  {
-    id: 3, avatar: Avatar1, name: 'John Smith', posts: 2
-  },
-  {
-    id: 4, avatar: Avatar1, name: 'wwwwkkk', posts: 3
-  },
-  {
-    id: 5, avatar: Avatar1, name: 'Michael Brown', posts: 5
-  },
-];
 
 const Author = () => {
-  const [authors, setAuthors] = useState(authorData);
+  const [authors, setAuthors] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(false)
+
+
+
+  useEffect(() => {
+const getAuthor = async () => {
+  setIsLoading(true)
+try {
+  const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/users`)
+  setAuthors(response.data)
+} catch (error) {
+  console.log(error)
+}
+setIsLoading(false)
+}
+getAuthor()
+  },[])
+
+
+if(isLoading){
+  return <Loader/>
+}
 
   return (
     <section className='authors'>
@@ -31,7 +37,7 @@ const Author = () => {
           {authors.map(({ id, name, avatar, posts }) => (
             <Link key={id} to={`/Posts/users/${id}`} className='author'>
               <div className="author_avatar">
-                <img src={avatar} alt={`Image of ${name}`} />
+                <img src={`${process.env.REACT_APP_ASSETS_URL}/uploads/${avatar}`} alt={`Image of ${name}`} />
               </div>
               <div className="author_info">
                 <h4>{name}</h4>

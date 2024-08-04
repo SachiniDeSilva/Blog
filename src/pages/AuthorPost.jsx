@@ -27,7 +27,7 @@ const {id} = useParams()
     };
 
     fetchPosts(); // Call the fetchPosts function
-  }, []);
+  }, [id]);
 
   if (isLoading) {
     return <Loader />;
