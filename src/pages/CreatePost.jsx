@@ -80,7 +80,7 @@ const createPost  = async(e) =>{
    <section className='create_post'>
     <div className="container create_container">
       <h2>Create Post</h2>
-      {error && <p className='error'>{error}</p>}
+      {error && <p className='form_error-message'>{error}</p>}
 
       <form  className="form create-post_form" onSubmit={createPost}>
 
