@@ -5,7 +5,7 @@ const Loader = () => {
   return (
     <div className='loader'>
 <div className="loader_image">
-    <img src={LoadingGif} alt="" />
+ {/* <img src={LoadingGif} alt="" />*/}
 </div>
     </div>
   )

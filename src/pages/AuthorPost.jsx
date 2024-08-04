@@ -1,21 +1,59 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PostItem from '../components/PostItem'
-import { Dummy_post } from '../data'
-
-
+import Loader from '../components/Loader';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const AuthorPost = () => {
 
 
-  const [posts, setPosts]= useState (Dummy_post)
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  
+  // Corrected useState
+
+const {id} = useParams()
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setIsLoading(true);
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/posts/users/${id}`);
+        setPosts(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+      setIsLoading(false);
+    };
+
+    fetchPosts(); // Call the fetchPosts function
+  }, [id]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
-    <section className='author_posts'>
-     {posts.length > 0 ? <div className='author_container'>
-    {
-      posts.map(({id,thumbnail,category,title,desc,authorID}) => <PostItem key={id} postID={id} thumbnail={thumbnail} category={category} title={title} desc={desc} authorID={authorID}></PostItem>)
-    }
-    </div> : <h2 className='center'>No Post Found</h2>}
-  </section>  )
+    <section className='posts'>
+      {posts.length > 0 ? (
+        <div className='posts_container'>
+          {posts.map(({ _id:id, thumbnail, category, title, desc, creator, createdAt }) => (
+            <PostItem
+              key={id}
+              postID={id}
+              thumbnail={thumbnail}
+              category={category}
+              title={title}
+              desc={desc}
+              authorID={creator}
+              createdAt={createdAt}
+            />
+          ))}
+        </div>
+      ) : (
+        <h2 className='center'>No Post Found</h2>
+      )}
+    </section> )
 }
 
 export default AuthorPost

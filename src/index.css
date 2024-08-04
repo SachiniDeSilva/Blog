@@ -558,7 +558,7 @@ h3{
 .nav_menu li{
   width: 100%;
   box-shadow: -2rem 4rem 4rem rgba(0, 0, 0, 0.26);
-   animation: dropDown 500ms ease forwards;
+  
   opacity: 0;
   transform: rotateX(90deg);
   transform-origin: top;
