@@ -15,8 +15,8 @@
     "react-router-dom": "^6.24.1",
     "react-scripts": "5.0.1",
     "react-time-ago": "^7.3.3",
-    "web-vitals": "^2.1.4",
-    "relative-time-format": "^1.0.0"
+    "relative-time-format": "^1.1.6",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
