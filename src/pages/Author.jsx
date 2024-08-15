@@ -34,7 +34,7 @@ if(isLoading){
     <section className='authors'>
       {authors.length > 0 ? (
         <div className="authors_container">
-          {authors.map(({ id, name, avatar, posts }) => (
+          {authors.map(({ _id:id, name, avatar, posts }) => (
             <Link key={id} to={`/Posts/users/${id}`} className='author'>
               <div className="author_avatar">
                 <img src={`${process.env.REACT_APP_ASSETS_URL}/uploads/${avatar}`} alt={`Image of ${name}`} />
