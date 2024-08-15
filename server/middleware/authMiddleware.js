@@ -1,22 +1,22 @@
-const jwt = require ('jsonwebtoken')
-const HttpError = require('../models/errorModel')
+const jwt = require('jsonwebtoken');
+const HttpError = require('../models/errorModel');
 
-const autoMiddleware = async (req,res,next) => {
-    const Authorization = req.headers.Authorization || req.header.authorization
-    if(Authorization && Authorization.startsWith("Bearer")){
-        const token = Authorization.split(' ')[1]
-        jwt.verify(token, process.env.JWT_SECRET,(err, info)=>{
-            if(err){
-                return next(new HttpError("Unauthorzed invalid token", 403))
+const autoMiddleware = async (req, res, next) => {
+    const authorizationHeader = req.headers.authorization || req.headers.Authorization;
+
+    if (authorizationHeader && authorizationHeader.startsWith("Bearer")) {
+        const token = authorizationHeader.split(' ')[1];
+        jwt.verify(token, process.env.JWT_SECRET, (err, info) => {
+            if (err) {
+                return next(new HttpError("Unauthorized. Invalid token", 403));
             }
 
             req.user = info;
-            next()
-        })
+            next();
+        });
     } else {
-        return next(new HttpError("Unauthorized. No token",402))
+        return next(new HttpError("Unauthorized. No token", 402));
     }
 }
-"bearer ndjnrfjdnjdndefjeorfjsdndjifj"
 
-module.exports = autoMiddleware
+module.exports = autoMiddleware;

@@ -14,7 +14,7 @@ const [category , setCategory] =useState ('Uncategory')
 const[description, setDescription] = useState ('')
 const [thumbnail, setThumbnail] = useState('')
 const [error,setError] = useState('')
-const navigate = useNavigate
+const navigate = useNavigate()
 const {currentUser} = useContext(UserContext)
 const token = currentUser?.token
 
@@ -24,7 +24,7 @@ useEffect(()=>{
   if(!token){
     navigate('/login')
   }
-},[])
+},[token,navigate])
 
 const modules ={
   toolbar:[
@@ -41,7 +41,7 @@ const formats =[
   'link','image'
 ]
 
-const POst_categories =[
+const post_categories =[
 "Agriculture", "Education", "Bussiness", "Art", "Weather", "Uncategorized"
 ]
 
@@ -61,7 +61,7 @@ const createPost  = async(e) =>{
     })
 
 
-    if(response.status == 201){
+    if(response.status === 201){
       return navigate('/')
     }
   } catch (err) {
@@ -88,7 +88,7 @@ const createPost  = async(e) =>{
 
         <select name='category' value={category} onChange={e=> setCategory(e.target.value)}>
           {
-POst_categories.map(cat => <option key={cat}>{cat}</option>)
+post_categories.map(cat => <option key={cat}>{cat}</option>)
           }
           
         </select>

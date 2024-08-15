@@ -7,14 +7,14 @@ const HttpError = require('../models/errorModel')
 //Get all posts
 const createPost = async(req, res, next) => {
     try {
-        let{title, category, description} = req.body
-        if(!title || !category ||!req.files ||!description
+        let{title, category, desc} = req.body
+        if(!title || !category ||!req.files ||!desc
         ){
             return next(new HttpError("Fill in all fields and choose thambnail",422))
         }
-
+        const {thumbnail} =req.files
         //check the file 
-        if(thumbnail.size > 200000){
+        if(thumbnail.size > 2000000){
             return next(new HttpError("thumbnail too big. file shoud be less than 2mb."))
 
         }
@@ -25,20 +25,20 @@ const createPost = async(req, res, next) => {
             if(err){
                 return next(new HttpError(err))
             }else{
-              const newPost = await Post.create ({title,category,description, thumbnail:newFilename, creator:req.user.id}) 
+              const newPost = await Post.create ({title,category,desc, thumbnail:newFilename, creator:req.user.id}) 
               if(!newPost){
                 return next(new HttpError("Post couldn't not create",422))
               } 
               //fine user and increate post by vount1
               const currentUser =await User.findById(req.user.id)
-              const userPostCount = current.posts + 1
-              await User.findByIdAndDelete(req.user.id,{posts:userPostCunt})
+              const userPostCount = currentUser.posts + 1
+              await User.findByIdAndUpdate(req.user.id,{posts: userPostCount})
 
 
 
 
 
-              resststus(201).json
+              res.ststus(201).json(newPost)
             }
         })
     } catch (error) {
@@ -88,7 +88,7 @@ const getCatPost = async(req, res, next) => {
 }
 
 //get another post
-const getUserpost = async(req, res, next) => {
+const getUserposts = async(req, res, next) => {
   try {
     
   } catch (error) {
@@ -107,4 +107,4 @@ const deletePost = async(req, res, next) => {
     res.json("Delete post")
 }
 
-module.exports = {createPost, getPosts,getPost, getCatPost, getUserpost, editPost, deletePost}
+module.exports = {createPost, getPosts,getPost, getCatPost, getUserposts, editPost, deletePost}
